@@ -1,0 +1,8 @@
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT license.
+
+nltk==3.4
+pattern
+numpy==1.14.0
+pytorch-pretrained-bert==0.5.1
+tqdm==4.31.1
