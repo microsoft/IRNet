@@ -194,7 +194,10 @@ def to_batch_seq(sql_data, table_data, idxes, st, ed,
 
         rule_label = None
         if 'rule_label' in sql:
-            rule_label = [eval(x) for x in sql['rule_label'].strip().split(' ')]
+            try:
+                rule_label = [eval(x) for x in sql['rule_label'].strip().split(' ')]
+            except:
+                continue
             if is_valid(rule_label, col_table_dict=col_table_dict, sql=sql) is False:
                 continue
 

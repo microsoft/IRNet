@@ -6,7 +6,7 @@
 devices=$1
 save_name=$2
 
-CUDA_VISIBLE_DEVICES=$devices nohup python -u train.py --dataset ./data \
+CUDA_VISIBLE_DEVICES=$devices python -u train.py --dataset ./data \
 --glove_embed_path ./data/glove.42B.300d.txt \
 --cuda \
 --epoch 50 \
@@ -21,4 +21,4 @@ CUDA_VISIBLE_DEVICES=$devices nohup python -u train.py --dataset ./data \
 --hidden_size 300 \
 --lr_scheduler \
 --lr_scheduler_gammar 0.5 \
---att_vec_size 300 > ${save_name}".log" &
+--att_vec_size 300 > ${save_name}".log"

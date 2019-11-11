@@ -25,4 +25,3 @@ CUDA_VISIBLE_DEVICES=$devices python -u eval.py --dataset ./data \
 --load_model ./saved_model/IRNet_pretrained.model
 
 python sem2SQL.py --data_path ./data --input_path predict_lf.json --output_path ${save_name}
-
