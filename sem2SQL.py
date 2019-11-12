@@ -687,6 +687,7 @@ if __name__ == '__main__':
                 result = transform(datas[i], schemas[datas[i]['db_id']], origin='Root1(3) Root(5) Sel(0) N(0) A(3) C(0) T(0)')
                 exception_count += 1
                 d.write(result[0] + '\n')
+                g.write("%s\t%s\t%s\n" % (datas[i]['query'], datas[i]["db_id"], datas[i]["question"]))
                 count += 1
                 print(e)
                 print('Exception')
