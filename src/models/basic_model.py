@@ -43,7 +43,7 @@ class BasicModel(nn.Module):
             table_embedding.size(0),
             table_embedding.size(1),
             embedding_differ.size(2)
-        ), 0)
+        ).bool(), 0)
 
         return embedding_differ
 
