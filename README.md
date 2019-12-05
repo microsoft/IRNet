@@ -57,12 +57,12 @@ You could follow the general evaluation process in [Spider Page](https://github.
 If you use IRNet, please cite the following work.
 
 ```
-@article{GuoIRNet2019,
+@inproceedings{GuoIRNet2019,
   author={Jiaqi Guo and Zecheng Zhan and Yan Gao and Yan Xiao and Jian-Guang Lou and Ting Liu and Dongmei Zhang},
   title={Towards Complex Text-to-SQL in Cross-Domain Database with Intermediate Representation},
-  journal={arXiv preprint arXiv:1905.08205},
+  booktitle={Proceeding of the 57th Annual Meeting of the Association for Computational Linguistics (ACL)},
   year={2019},
-  note={version 1}
+  organization={Association for Computational Linguistics}
 }
 ```
 
