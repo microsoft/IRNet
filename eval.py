@@ -44,8 +44,9 @@ def evaluate(args):
 
     model.word_emb = utils.load_word_emb(args.glove_embed_path)
 
-    json_datas = utils.epoch_acc(model, args.batch_size, val_sql_data, val_table_data,
+    json_datas, sketch_acc, acc = utils.epoch_acc(model, args.batch_size, val_sql_data, val_table_data,
                            beam_size=args.beam_size)
+    print('Sketch Acc: %f, Acc: %f' % (sketch_acc, acc))
     # utils.eval_acc(json_datas, val_sql_data)
     import json
     with open('./predict_lf.json', 'w') as f:

@@ -265,6 +265,7 @@ def epoch_acc(model, batch_size, sql_data, table_data, beam_size=3):
     st = 0
 
     json_datas = []
+    sketch_correct, rule_label_correct, total = 0, 0, 0
     while st < len(sql_data):
         ed = st+batch_size if st+batch_size < len(perm) else len(perm)
         examples = to_batch_seq(sql_data, table_data, perm, st, ed,
@@ -289,9 +290,18 @@ def epoch_acc(model, batch_size, sql_data, table_data, beam_size=3):
             simple_json['sketch_result'] =  " ".join(str(x) for x in results_all[1])
             simple_json['model_result'] = pred
 
+            truth_sketch = " ".join([str(x) for x in example.sketch])
+            truth_rule_label = " ".join([str(x) for x in example.tgt_actions])
+
+            if truth_sketch == simple_json['sketch_result']:
+                sketch_correct += 1
+            if truth_rule_label == simple_json['model_result']:
+                rule_label_correct += 1
+            total += 1
+
             json_datas.append(simple_json)
         st = ed
-    return json_datas
+    return json_datas, float(sketch_correct)/float(total), float(rule_label_correct)/float(total)
 
 def eval_acc(preds, sqls):
     sketch_correct, best_correct = 0, 0
