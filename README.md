@@ -9,8 +9,11 @@ Code for our ACL'19 accepted paper: [Towards Complex Text-to-SQL in Cross-Domain
 
 * `Python3.6`
 * `Pytorch 0.4.0` or higher
+* `libmysqlclient-dev` installed
 
 Install Python dependency via `pip install -r requirements.txt` when the environment of Python and Pytorch is setup.
+
+* download `wordnet` via `python -m nltk.downloader wordnet`
 
 ## Running Code
 
@@ -20,11 +23,11 @@ Install Python dependency via `pip install -r requirements.txt` when the environ
 * Download [Glove Embedding](https://nlp.stanford.edu/data/wordvecs/glove.42B.300d.zip) and put `glove.42B.300d` under `./data/` directory
 * Download [Pretrained IRNet](https://drive.google.com/open?id=1VoV28fneYss8HaZmoThGlvYU3A-aK31q) and put `
 IRNet_pretrained.model` under `./saved_model/` directory
-* Download preprocessed train/dev datasets from [here](https://drive.google.com/open?id=1YFV1GoLivOMlmunKW0nkzefKULO4wtrn) and put `train.json`, `dev.json` and 
+* Download preprocessed train/dev datasets from [here](https://drive.google.com/open?id=1YFV1GoLivOMlmunKW0nkzefKULO4wtrn) and put `train.json`, `dev.json` and
 `tables.json` under `./data/` directory
 
 ##### Generating train/dev data by yourself
-You could process the origin [Spider Data](https://drive.google.com/uc?export=download&id=11icoH_EA-NYb0OrPTdehRWm_d7-DIzWX) by your own. Download  and put `train.json`, `dev.json` and 
+You could process the origin [Spider Data](https://drive.google.com/uc?export=download&id=11icoH_EA-NYb0OrPTdehRWm_d7-DIzWX) by your own. Download  and put `train.json`, `dev.json` and
 `tables.json` under `./data/` directory and follow the instruction on `./preprocess/`
 
 #### Training
