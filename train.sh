@@ -11,7 +11,7 @@ CUDA_VISIBLE_DEVICES=$devices python -u train.py --dataset ./data \
 --cuda \
 --epoch 50 \
 --loss_epoch_threshold 50 \
---sketch_loss_coefficie 1.0 \
+--sketch_loss_coefficient 1.0 \
 --beam_size 1 \
 --seed 90 \
 --save ${save_name} \
