@@ -38,8 +38,8 @@ def init_arg_parser():
     arg_parser.add_argument('--lstm', choices=['lstm', 'lstm_with_dropout', 'parent_feed'], default='lstm')
 
     arg_parser.add_argument('--load_model', default=None, type=str, help='load a pre-trained model')
-    arg_parser.add_argument('--glove_embed_path', default="/home/v-zezhan/Seq2Tree/glove/glove.6B.100d.txt", type=str)
-    arg_parser.add_argument('--glove_300_embed_path', default="/home/v-zezhan/git/spider/baselines/sqlnet/glove/glove.42B.300d.txt", type=str)
+    arg_parser.add_argument('--glove_embed_path', type=str)
+    arg_parser.add_argument('--glove_300_embed_path', type=str)
 
     arg_parser.add_argument('--lr_scheduler', action='store_true', help='use learning rate scheduler')
     arg_parser.add_argument('--lr_scheduler_gammar', default=0.5, type=float,
@@ -278,7 +278,6 @@ def train(args):
     elif args.glorot_init:
         print('use glorot initialization', file=sys.stderr)
         nn_utils.glorot_init(model.parameters())
-
 
     # begin train
     num_epoch = args.epoch
