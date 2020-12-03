@@ -13,7 +13,7 @@ import argparse
 import nltk
 import os
 import pickle
-from utils import symbol_filter, re_lemma, fully_part_header, group_header, partial_header, num2year, group_symbol, group_values, group_digital
+from utils import symbol_filter, fully_part_header, group_header, partial_header, num2year, group_symbol, group_values, group_digital
 from utils import AGG, wordnet_lemmatizer
 from utils import load_dataSets
 
@@ -43,28 +43,18 @@ def process_datas(datas, args):
         entry['question_toks'] = question_toks
 
         table_names = []
-        table_names_pattern = []
 
         for y in entry['table_names']:
             x = [wordnet_lemmatizer.lemmatize(x.lower()) for x in y.split(' ')]
             table_names.append(" ".join(x))
-            x = [re_lemma(x.lower()) for x in y.split(' ')]
-            table_names_pattern.append(" ".join(x))
 
         header_toks = []
         header_toks_list = []
-
-        header_toks_pattern = []
-        header_toks_list_pattern = []
 
         for y in entry['col_set']:
             x = [wordnet_lemmatizer.lemmatize(x.lower()) for x in y.split(' ')]
             header_toks.append(" ".join(x))
             header_toks_list.append(x)
-
-            x = [re_lemma(x.lower()) for x in y.split(' ')]
-            header_toks_pattern.append(" ".join(x))
-            header_toks_list_pattern.append(x)
 
         num_toks = len(question_toks)
         idx = 0
@@ -215,5 +205,3 @@ if __name__ == '__main__':
 
     with open(args.output, 'w') as f:
         json.dump(datas, f)
-
-
