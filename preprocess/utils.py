@@ -8,9 +8,7 @@
 # @File    : utils.py
 # @Software: PyCharm
 """
-import os
 import json
-from pattern.en import lemma
 from nltk.stem import WordNetLemmatizer
 
 VALUE_FILTER = ['what', 'how', 'list', 'give', 'show', 'find', 'id', 'order', 'when']
@@ -164,10 +162,3 @@ def set_header(toks, header_toks, tok_concol, idx, num_toks):
             if check_in(toks, heads):
                 return heads
     return None
-
-def re_lemma(string):
-    lema = lemma(string.lower())
-    if len(lema) > 0:
-        return lema
-    else:
-        return string.lower()
