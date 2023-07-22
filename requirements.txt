@@ -1,7 +1,7 @@
 # Copyright (c) Microsoft Corporation.
 # Licensed under the MIT license.
 
-nltk==3.4
+nltk==3.6.6
 pattern
 numpy==1.14.0
 pytorch-pretrained-bert==0.5.1
